@@ -7,5 +7,7 @@ Author: Ian Lyttle <ian.lyttle@schneider-electric.com>
 Maintainer: Ian Lyttle <ian.lyttle@schneider-electric.com>
 Description: A means for performing psychrometric calculations, 
   according to the 2006 ASHRAE Handbook of Fundamentals.
-URL: http
+URL: https://github.com/ijlyttle/humidr
+Suggests:
+  testthat
 License: GPL-2 (need to check with SE legal)
