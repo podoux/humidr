@@ -1,0 +1,26 @@
+\name{w_pw}
+\alias{w_pw}
+\title{w_pw}
+\usage{
+w_pw(p_w, p_atm = 101325)
+}
+\arguments{
+  \item{p_w}{numeric: vapor pressure of water (Pa)}
+
+  \item{p_atm}{numeric: atmospheric pressure (Pa), default
+  101235 Pa
+
+  Reference: 2005 ASHRAE Handbook - Fundamentals ch.6 (3)}
+}
+\value{
+numeric: humidity ratio (1)
+}
+\description{
+Humidity ratio as function of vapor pressure, and
+atmospheric pressure.
+}
+\details{
+The humudity ratio is the ratio mass of water vapor to the
+mass of dry air.
+}
+

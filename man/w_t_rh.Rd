@@ -1,0 +1,24 @@
+\name{w_t_rh}
+\alias{w_t_rh}
+\title{w_t_rh}
+\usage{
+w_t_rh(t, rh, p_atm = 101325)
+}
+\arguments{
+  \item{t}{numeric: temperature (°C)}
+
+  \item{p_atm}{numeric: atmospheric pressure (Pa), default
+  101235 Pa}
+}
+\value{
+numeric: humidity ratio (1)
+}
+\description{
+Humidity ratio as function of (dry-bulb) temperature and
+relative humidity
+}
+\details{
+The humudity ratio is the ratio mass of water vapor to the
+mass of dry air.
+}
+
