@@ -113,7 +113,6 @@ w_t_rh <- function(t, rh, p_atm = 101325){
   w
 }
 
-
 #' h_t_w
 #' 
 #' Enthalpy of moist air as function of temperature and humidity ratio
@@ -141,10 +140,29 @@ h_t_w <- function(t, w) 1.006*t + w*(2501 + 1.86*t)
 #' @return      numeric: enthalpy of dry air (kJ/kg)
 #' @export
 #' 
-h_t_rh <- function(t, rh, p_atm=101325){
+h_t_rh <- function(t, rh, p_atm = 101325){
   w <- w_t_rh(t, rh, p_atm)
   h <- h_t_w(t, w)
   
-  return(h)
+  h
 } 
 
+#' t_wb
+#' 
+#' given a set of temperatures, relative humidities, pressures,
+#' determine wet-bulb temperatures
+#' 
+#' @param t numeric temperature (°C)
+#' @param rh numeric relative humidity (1)
+#' @param p_atm numeric atmospheric pressure (Pa)
+#' 
+#' @return numeric wet-bulb temperature (°C)
+#' 
+#' @export
+#' 
+t_wb <- function(t, rh, p_atm = 101325){
+  
+  t_wb <- mapply(.t_wb_single, t = t, rh = rh, p_atm = p_atm)
+  
+  return(t_wb)
+}
