@@ -6,12 +6,13 @@ Date: 2014-04-24
 Author: Ian Lyttle <ian.lyttle@schneider-electric.com>
 Maintainer: Ian Lyttle <ian.lyttle@schneider-electric.com>
 Description: A means for performing psychrometric calculations,
-    according to the 2006 ASHRAE Handbook of Fundamentals.
+    according to the 2005 ASHRAE Handbook of Fundamentals.
 URL: https://github.com/ijlyttle/humidr
-Suggests: 
+Suggests:
     testthat,
     knitr,
     rmarkdown,
     dplyr
-License: GPL-2 (need to check with SE legal)
+License: MIT
 VignetteBuilder: knitr
+LazyData: true

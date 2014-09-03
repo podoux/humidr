@@ -9,6 +9,10 @@ vignette: >
   %\usepackage[utf8]{inputenc}
 ---
 
+```{r, echo = FALSE, message = FALSE}
+library(humidr)
+```
+
 This vignette shows how to make psychrometric calculations using the `humidr` package.
 
 Let's say you have a weather station at a given elevation:
