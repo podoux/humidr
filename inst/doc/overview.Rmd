@@ -15,6 +15,23 @@ library(humidr)
 
 This vignette shows how to make psychrometric calculations using the `humidr` package.
 
+The Wikipedia page on [psychrometrics](http://en.wikipedia.org/wiki/Psychrometrics) is a great resource.
+
+### Terminology
+
+
+ Symbol    | Variable Name | Description
+ ----------|---------------|---------------
+ $h$       | `h`           | specific enthalpy (kJ/kg)
+ $p$       | `p_atm`       | atmospheric pressure (Pa)
+ $p_sl$    | `p_sl`        | sea-level pressure (Pa)
+ $T_{db}$  | `t`, `t_db`   | dry-bulb temperature (°C)      
+ $T_{wb}$  | `t_wb`        | wet-bulb temperature (°C)
+ $W$       | `w`           | humidity ratio, mass of water vapor to dry air (1)
+ $z$       | `z`           | elevation (m)
+ $\phi$    | `rh`          | relative humidity (1)
+
+
 Let's say you have a weather station at a given elevation:
 
 ```{r}
@@ -29,7 +46,11 @@ rh <- 0.96   # relative humidity (1)
 p_sl <- 101380.0 # sea-level pressure (Pa)
 ```
 
-The first thing we need to do is to estimate the atmospheric pressure at the station, given the sea-level pressure reported at the weather station.
+The first thing we need to do is to estimate the atmospheric pressure at the station, given the sea-level pressure reported at the weather station. If that is not available, we can use the standard value for sea-level pressure, 101325 Pa.
+
+We use equation (3) from the ASHRAE handbook:
+
+\[  p = p_{sl} \times (1 - \frac{z}{44330.8 \; \rm{m}})^{5.5229} \]
 
 ```{r}
 p_atm <- p_atm_z(z = elevation, p_sl = p_sl) # atmospheric pressure (Pa)

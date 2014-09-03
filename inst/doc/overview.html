@@ -59,13 +59,69 @@ code > span.er { color: #ff0000; font-weight: bold; }
 
 
 <p>This vignette shows how to make psychrometric calculations using the <code>humidr</code> package.</p>
+<p>The Wikipedia page on <a href="http://en.wikipedia.org/wiki/Psychrometrics">psychrometrics</a> is a great resource.</p>
+<div id="terminology" class="section level3">
+<h3>Terminology</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Symbol</th>
+<th align="left">Variable Name</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math">\(h\)</span></td>
+<td align="left"><code>h</code></td>
+<td align="left">specific enthalpy (kJ/kg)</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math">\(p\)</span></td>
+<td align="left"><code>p_atm</code></td>
+<td align="left">atmospheric pressure (Pa)</td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math">\(p_sl\)</span></td>
+<td align="left"><code>p_sl</code></td>
+<td align="left">sea-level pressure (Pa)</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math">\(T_{db}\)</span></td>
+<td align="left"><code>t</code>, <code>t_db</code></td>
+<td align="left">dry-bulb temperature (°C)</td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math">\(T_{wb}\)</span></td>
+<td align="left"><code>t_wb</code></td>
+<td align="left">wet-bulb temperature (°C)</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math">\(W\)</span></td>
+<td align="left"><code>w</code></td>
+<td align="left">humidity ratio, mass of water vapor to dry air (1)</td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math">\(z\)</span></td>
+<td align="left"><code>z</code></td>
+<td align="left">elevation (m)</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math">\(\phi\)</span></td>
+<td align="left"><code>rh</code></td>
+<td align="left">relative humidity (1)</td>
+</tr>
+</tbody>
+</table>
 <p>Let’s say you have a weather station at a given elevation:</p>
 <pre class="sourceCode r"><code class="sourceCode r">elevation &lt;-<span class="st"> </span><span class="dv">265</span> <span class="co"># elevation (m)</span></code></pre>
 <p>Let’s say you have an set of weather observations at this station:</p>
 <pre class="sourceCode r"><code class="sourceCode r">t_db &lt;-<span class="st"> </span><span class="fl">16.7</span> <span class="co"># dry-bulb temperauture (°C)</span>
 rh &lt;-<span class="st"> </span><span class="fl">0.96</span>   <span class="co"># relative humidity (1)</span>
 p_sl &lt;-<span class="st"> </span><span class="fl">101380.0</span> <span class="co"># sea-level pressure (Pa)</span></code></pre>
-<p>The first thing we need to do is to estimate the atmospheric pressure at the station, given the sea-level pressure reported at the weather station.</p>
+<p>The first thing we need to do is to estimate the atmospheric pressure at the station, given the sea-level pressure reported at the weather station. If that is not available, we can use the standard value for sea-level pressure, 101325 Pa.</p>
+<p>We use equation (3) from the ASHRAE handbook:</p>
+<p><span class="math">\[  p = p_{sl} \times (1 - \frac{z}{44330.8 \; \rm{m}})^{5.5229} \]</span></p>
 <pre class="sourceCode r"><code class="sourceCode r">p_atm &lt;-<span class="st"> </span><span class="kw">p_atm_z</span>(<span class="dt">z =</span> elevation, <span class="dt">p_sl =</span> p_sl) <span class="co"># atmospheric pressure (Pa)</span>
 p_atm</code></pre>
 <pre><code>## [1] 98235</code></pre>
@@ -80,6 +136,7 @@ w</code></pre>
 <pre><code>## [1] 46.62</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">t_wb</code></pre>
 <pre><code>## [1] 16.29</code></pre>
+</div>
 <div id="vectorized-calculation" class="section level2">
 <h2>Vectorized calculation</h2>
 <p>Given a series of observations:</p>
