@@ -10,7 +10,7 @@
 
 <meta name="author" content="Ian Lyttle" />
 
-<meta name="date" content="2014-09-03" />
+<meta name="date" content="2014-09-08" />
 
 <title>Psychrometric calculations</title>
 
@@ -54,7 +54,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <div id="header">
 <h1 class="title">Psychrometric calculations</h1>
 <h4 class="author"><em>Ian Lyttle</em></h4>
-<h4 class="date"><em>2014-09-03</em></h4>
+<h4 class="date"><em>2014-09-08</em></h4>
 </div>
 
 
@@ -140,9 +140,18 @@ w</code></pre>
 <div id="vectorized-calculation" class="section level2">
 <h2>Vectorized calculation</h2>
 <p>Given a series of observations:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
-
-wx_today &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)</code></pre>
+<pre><code>## 
+## Attaching package: 'dplyr'
+## 
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+## 
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">wx_today &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
   <span class="dt">t_db =</span> <span class="kw">c</span>(<span class="fl">25.0</span>, <span class="fl">25.0</span>, <span class="fl">22.8</span>, <span class="fl">21.1</span>, <span class="fl">16.7</span>),
   <span class="dt">rh =</span> <span class="kw">c</span>(<span class="fl">0.54</span>, <span class="fl">0.54</span>, <span class="fl">0.62</span>, <span class="fl">0.68</span>, <span class="fl">0.96</span>),
   <span class="dt">p_sl =</span> <span class="kw">c</span>(<span class="fl">101310.0</span>, <span class="fl">101260.0</span>, <span class="fl">101240.0</span>, <span class="fl">101310.0</span>, <span class="fl">101380.0</span>)
@@ -207,6 +216,47 @@ wx_today &lt;-<span class="st"> </span>
 <td align="right">0.0118</td>
 <td align="right">46.62</td>
 <td align="right">16.29</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="naming-convention" class="section level2">
+<h2>Naming convention</h2>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Function</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>h_t_rh</code></td>
+<td align="left">find enthalpy given (db) temperature and relative humidity</td>
+</tr>
+<tr class="even">
+<td align="left"><code>h_t_w</code></td>
+<td align="left">find enthalpy given (db) temperature and humidity ratio</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>p_atm_z</code></td>
+<td align="left">find atmospheric pressure given elevation (and sea-level pressure)</td>
+</tr>
+<tr class="even">
+<td align="left"><code>p_ws_t</code></td>
+<td align="left">find saturation-pressure of water-vapor given (db) temperature</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>t_wb</code></td>
+<td align="left">find wet-bulb temperature</td>
+</tr>
+<tr class="even">
+<td align="left"><code>w_pw</code></td>
+<td align="left">find humidity ratio given saturation-pressure of water-vapor (and atmospheric pressure)</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>w_t_rh</code></td>
+<td align="left">find humidity ratio given (db) temperature and relative humidity</td>
 </tr>
 </tbody>
 </table>

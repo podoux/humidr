@@ -95,6 +95,18 @@ wx_today <-
 knitr::kable(wx_today)
 ```
 
+## Naming convention
+
+ Function  | Description 
+---------  | ------------
+ `h_t_rh`  | find enthalpy given (db) temperature and relative humidity
+ `h_t_w`   | find enthalpy given (db) temperature and humidity ratio
+ `p_atm_z` | find atmospheric pressure given elevation (and sea-level pressure)
+ `p_ws_t`  | find saturation-pressure of water-vapor given (db) temperature
+ `t_wb`    | find wet-bulb temperature
+ `w_pw`    | find humidity ratio given saturation-pressure of water-vapor (and atmospheric pressure)
+ `w_t_rh`  | find humidity ratio given (db) temperature and relative humidity
+
 ## Reference 
 
 Chapter 6, 2005 ASHRAE Handbook -- Fundamentals (SI)
