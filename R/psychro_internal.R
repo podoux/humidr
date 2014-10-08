@@ -89,6 +89,8 @@
 # 
 .t_wb_single <- function(t, rh, p_atm = 101325){
   
+  if (any(is.na(c(t, rh, p_atm)))) return (NA)
+  
   t_wb <- uniroot(.error_wetbulb, t=t, rh=rh, lower = -100, upper = 65)$root
   
   return(t_wb)
