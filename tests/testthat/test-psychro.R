@@ -46,5 +46,8 @@ test_that("wet-bulb temperature at p_std", {
   # dry_air 
   expect_equal(t_wb(t, 0), c(-13.34, -3.16, 5.84), tolerance=5.e-3)
   
-  
+})
+
+test_that("NA handling", {
+  expect_true(is.na(t_wb(NA, 1)))
 })
