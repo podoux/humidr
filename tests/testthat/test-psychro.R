@@ -49,5 +49,7 @@ test_that("wet-bulb temperature at p_std", {
 })
 
 test_that("NA handling", {
+  expect_true(is.na(p_ws_t(NA)))
+  
   expect_true(is.na(t_wb(NA, 1)))
 })

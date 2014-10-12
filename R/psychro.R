@@ -40,10 +40,10 @@ p_atm_z <- function(z, p_sl = 101325) {
 #' @export
 #' 
 p_ws_t <- function(t){
- 
-  # validate the input
-  if (any(!(-100 <= t & t <= 200)))
-    stop("Temperature out of range: -100 <= t <= 200")  
+   
+#   # validate the input
+#   if (any(!(-100 <= t & t <= 200)))
+#     warning("Temperature out of range: -100 <= t <= 200")  
   
   # define sets of coefficients 
   cf_cold <- c(-5.6745359e+03,

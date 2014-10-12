@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ijlyttle/humidr.png?branch=master)](https://travis-ci.org/ijlyttle/humidr)
+
 # humidr
 
 * Perform psychrometric calculations according to the 2005 ASHRAE Handbook of Fundamentals.
