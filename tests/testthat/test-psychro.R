@@ -53,3 +53,7 @@ test_that("NA handling", {
   
   expect_true(is.na(t_wb(NA, 1)))
 })
+
+test_that("fail!", {
+  expect_equal(0, 1)
+})
