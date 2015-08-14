@@ -91,7 +91,7 @@
   
   if (any(is.na(c(t, rh, p_atm)))) return (NA)
   
-  t_wb <- uniroot(.error_wetbulb, t=t, rh=rh, lower = -100, upper = 65)$root
+  t_wb <- uniroot(.error_wetbulb, t=t, rh=rh, p_atm=p_atm, lower = -100, upper = 65)$root
   
   return(t_wb)
   
